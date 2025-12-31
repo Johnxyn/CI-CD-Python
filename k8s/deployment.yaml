@@ -15,6 +15,7 @@ spec:
       containers:
       - name: flask-container
         image: johnxyn/ci_cd_python:latest # K8s pulls this from Docker Hub
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
 

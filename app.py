@@ -8,7 +8,7 @@ def hello():
     return jsonify(
         status='success',
         message='Hello, DevOps World!',
-        version='1.0.0'
+        version='2.0.0'
     ), 200
 
 if __name__ == '__main__':
