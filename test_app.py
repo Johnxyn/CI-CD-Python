@@ -1,4 +1,5 @@
 import pytest
+import os
 from app import app
 
 @pytest.fixture
@@ -6,6 +7,8 @@ def client():
     return app.test_client()
 
 def test_home_page(client):
+    # This "mocks" the environment variable just for this test
+    os.environ["CUSTOM_MESSAGE"] = "Hello, DevOps World!"
     """Test that the home page returns a 200 OK and correct JSON"""
     response = client.get('/')
     assert response.status_code == 200
