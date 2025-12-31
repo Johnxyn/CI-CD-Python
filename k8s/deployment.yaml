@@ -15,6 +15,11 @@ spec:
       containers:
       - name: flask-container
         image: johnxyn/ci_cd_python:latest # K8s pulls this from Docker Hub
+        env:
+          - name: APP_COLOR
+            value: "blue"
+          - name: CUSTOM_MESSAGE
+            value: "Hello from Kubernetes Config!"
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
