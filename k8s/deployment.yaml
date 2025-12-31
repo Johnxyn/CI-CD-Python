@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app-deployment
+spec:
+  replicas: 3  # This ensures 3 copies are always running
+  selector:
+    matchLabels:
+      app: my-flask-api
+  template:
+    metadata:
+      labels:
+        app: my-flask-api
+    spec:
+      containers:
+      - name: flask-container
+        image: johnxyn/ci_cd_python:latest # K8s pulls this from Docker Hub
+        ports:
+        - containerPort: 5000
+
